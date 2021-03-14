@@ -59,6 +59,7 @@ export const StoreProvider = ({ children }) => {
       else {setSuggestions()}
     }
 
+
     useEffect(() => {
       getModalPhoto(modalPhotoId)
     }, [modalPhotoId] );
