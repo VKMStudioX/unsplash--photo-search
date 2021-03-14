@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import StoreProvider from './Store/StoreProvider'
+import {BrowserRouter as Router, Switch} from 'react-router-dom'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Router>
+    <Switch>
+      <StoreProvider>
+          <App />
+      </StoreProvider>
+    </Switch>
+  </Router>
+  ,
   document.getElementById('root')
 );
 
