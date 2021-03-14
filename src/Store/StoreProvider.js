@@ -38,7 +38,6 @@ export const StoreProvider = ({ children }) => {
       })
         .then((json) => {
           let photosArray = photos.concat(json.response.results)
-          console.log(photosArray)
           setPhotos(photosArray);
           setSearch(false)
         });
@@ -81,7 +80,6 @@ export const StoreProvider = ({ children }) => {
       await unsplash.photos.getRandom({
         count: 1,
       }).then((json) => {
-        console.log(json);
         setRandomPhoto(json.response[0]);
       });
     }
