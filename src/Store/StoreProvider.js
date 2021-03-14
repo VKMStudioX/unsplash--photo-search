@@ -22,7 +22,7 @@ export const StoreProvider = ({ children }) => {
     });
 
     useEffect(() => {
-      if (history.location.pathname==='/results' && search) {
+      if (history.location.pathname==='/results' && search && query) {
       const delayed = setTimeout(() => {
           getPhotos(query, page);
       }, 300);
@@ -49,10 +49,7 @@ export const StoreProvider = ({ children }) => {
   
     const getSuggestions = async (query) => {
       if (query.length >= 3 ) {
-        await axios.get(`${process.env.REACT_APP_API_AUTOCOMPLETE_URL}/${query}`, {
-          "Content-Type": "application/json; charset=utf-8",
-          'Access-Control-Allow-Origin': '*'
-         })
+        await axios.get(`${process.env.REACT_APP_API_AUTOCOMPLETE_URL}/${query}`)
           .then((json) => {
             json.data.autocomplete.length
               ? setSuggestions(json.data.autocomplete) 
