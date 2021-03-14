@@ -49,7 +49,10 @@ export const StoreProvider = ({ children }) => {
   
     const getSuggestions = async (query) => {
       if (query.length >= 3 ) {
-        await axios.get(`${process.env.REACT_APP_API_AUTOCOMPLETE_URL}/${query}`)
+        await axios.get(`${process.env.REACT_APP_API_AUTOCOMPLETE_URL}/${query}`, {
+          "Content-Type": "application/json; charset=utf-8",
+          'Access-Control-Allow-Origin': '*'
+         })
           .then((json) => {
             json.data.autocomplete.length
               ? setSuggestions(json.data.autocomplete) 
