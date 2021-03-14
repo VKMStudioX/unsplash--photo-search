@@ -6,7 +6,10 @@ const Header = () => {
     const history = useHistory()
 
     return (
-    <header className={history.location.pathname === '/' ? 'header-home' : 'header-results'}>
+    <header 
+    className={history.location.pathname === '/' 
+    ? 'header-home' 
+    : 'header-results'}>
         <Link to='/'><h1 className="title">Unsplash Photo Search</h1></Link>
     </header>
     )
